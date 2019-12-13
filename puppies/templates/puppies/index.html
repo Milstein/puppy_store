@@ -1,0 +1,24 @@
+{% extends "puppies/base.html" %}
+
+{% block sidebar %}
+<li><a href="{% url 'puppies:index' %}">Home</a></li>
+<li><a href="{% url 'puppies:add_post_puppies' %}">Add</a></li>
+{% endblock %}
+
+{% block content %}
+
+{% if puppy.count > 0 %}
+{% for p in puppy %}
+<div>
+<h2>{{ p.name }}</a></h2>
+<p>{{ p.age }}</p>
+<p>{{ p.breed }}</p>
+<p>{{ p.color }}</p>
+<p>{{ p.created_at }}</p>
+</div>
+{% endfor %}
+{% else %}
+<p>Nothing.</p>
+{% endif %}
+
+{% endblock %}
